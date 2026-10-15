@@ -1,3 +1,5 @@
+//go:build ignore
+
 #include "vmlinux.h"
 #include <bpf/bpf_helpers.h>
 
@@ -14,6 +16,7 @@ struct sock_state_event {
     __u32 newstate;
 };
 
+
 SEC("tracepoint/sock/inet_sock_set_state")
 int trace_tcp_state(struct
 trace_event_raw_inet_sock_set_state *ctx){
@@ -23,7 +26,7 @@ trace_event_raw_inet_sock_set_state *ctx){
     if(!event)
         return 0;
 
-    event->pid = bpf_get_current_pid_tgid() >> 32
+    event->pid = bpf_get_current_pid_tgid() >> 32;
     event->oldstate = ctx->oldstate;
     event->newstate = ctx->newstate;
 
