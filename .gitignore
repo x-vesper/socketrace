@@ -1,0 +1,40 @@
+# Secrets & config
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+secrets.*
+credentials.*
+*.secret
+
+# Go
+/socketrace
+*.exe
+*.test
+*.out
+vendor/
+
+# eBPF / generated
+vmlinux.h
+*.o
+*.skel.h
+
+# Build
+/dist/
+/build/
+/bin/
+
+# Logs & debug
+*.log
+logs/
+*.pid
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
